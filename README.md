@@ -1,6 +1,6 @@
 
 
-# soma_vetor
+# soma_vetor.c
 
 Este programa gera dois vetores de 32 inteiros com valores aleatórios entre 0 e 9, e os soma elemento por elemento utilizando paralelismo com OpenMP. 
 Os resultados são então impressos. O uso de OpenMP permite que a operação de soma seja dividida entre múltiplos threads, 
@@ -21,3 +21,9 @@ O vetor b e a matriz a são impressos antes e depois da operação de multiplica
 
 - Dentro do laço for, a multiplicação da matriz a pelo vetor b é realizada. Para cada linha i da matriz, 
 a soma dos produtos dos elementos da linha a[i][j] pelo correspondente elemento do vetor b[j] é calculada e armazenada no vetor c[i].
+
+# soma_acumulada.c
+
+Este script em C utiliza a biblioteca OpenMP para paralelizar a soma dos elementos de um array. 
+: A variável s não é protegida durante a atualização no loop paralelo, o que pode causar condições de corrida, resultando em um valor incorreto para s. 
+Uma solução seria utilizar a cláusula reduction(+:s) na diretiva omp for para garantir a soma correta dos elementos.
