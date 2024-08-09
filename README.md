@@ -25,5 +25,5 @@ a soma dos produtos dos elementos da linha a[i][j] pelo correspondente elemento 
 # soma_acumulada.c
 
 Este script em C utiliza a biblioteca OpenMP para paralelizar a soma dos elementos de um array. 
-: A variável s não é protegida durante a atualização no loop paralelo, o que pode causar condições de corrida, resultando em um valor incorreto para s. 
-Uma solução seria utilizar a cláusula reduction(+:s) na diretiva omp for para garantir a soma correta dos elementos.
+O uso de reduction(+:s)  garante que a soma da variável s seja feita de forma segura e eficiente entre todas as threads.
+ Cada thread mantém sua própria cópia local de s, e ao final do loop, essas cópias são combinadas para obter o valor final.
